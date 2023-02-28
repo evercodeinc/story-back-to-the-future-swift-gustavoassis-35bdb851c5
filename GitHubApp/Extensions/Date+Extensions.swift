@@ -17,7 +17,9 @@ extension Date {
         var dateComponents = DateComponents()
         dateComponents.year = years
         if let futureDate = calendar.date(byAdding: dateComponents, to: self){
-            return Date.format(dateString: "\(futureDate)")
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                return dateFormatter.string(from: futureDate)
         }
         return nil
     }
