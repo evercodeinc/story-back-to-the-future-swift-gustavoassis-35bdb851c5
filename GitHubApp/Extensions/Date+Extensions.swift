@@ -13,10 +13,12 @@ extension Date {
     
     
     func travelToFuture(years: Int) -> String? {
-     
-        // TODO
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.year = years
+        if let futureDate = calendar.date(byAdding: dateComponents, to: self){
+            return Date.format(dateString: "\(futureDate)")
+        }
         return nil
     }
-    
-    
 }
